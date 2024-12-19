@@ -1,0 +1,16 @@
+
+<!-- Display residence details -->
+<div *ngIf="residence">
+  <h2>{{ residence.name }}</h2>
+  <img [src]="residence.image" alt="{{ residence.name }}" width="200px" height="200px" />
+  <p><strong>Address:</strong> {{ residence.address }}</p>
+  <p><strong>Status:</strong> 
+    <span [ngStyle]="{color: residence.status === 'Disponible' ? 'green' : (residence.status === 'Vendu' ? 'red' : 'orange')}">
+      {{ residence.status }}
+    </span>
+  </p>
+</div>
+
+<div *ngIf="!residence">
+  <p>Loading or Residence not found...</p>
+</div>

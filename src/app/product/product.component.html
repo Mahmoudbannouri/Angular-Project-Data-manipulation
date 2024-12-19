@@ -1,0 +1,44 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Quantity</th>
+    <th>Likes</th>
+    <th>Add Likes</th>
+    <th>Add to favorit</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of listproduct">
+    <td>{{ p.title }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.quantity }}</td>
+    <td>{{ p.like }}</td>
+    <td>
+      <button class="btn btn-secondary" (click)="addlikes(p)">Add Likes</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary" (click)="addFavorit(p)">Add to favorit</button>
+    </td>
+    <td>
+      <button class="btn btn-secondary" [routerLink]="['/productByID',p.id]">Details of product</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-danger" (click)="getAlertStock()">
+  Get number of products with specific quantity
+</button>
+<h1>{{ alertStock }}</h1>
+
+<app-listproductavechttp></app-listproductavechttp>
+
+<table class="table">
+  <th>list des favorit</th>
+  <tr *ngFor="let f of listfavourit">
+    <td>{{f.title}}</td>
+  </tr>
+</table>

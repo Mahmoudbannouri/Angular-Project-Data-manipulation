@@ -1,0 +1,20 @@
+<p>to-buy-list works!</p>
+
+<table class="table">
+  <tr>
+  <th>Title</th>
+  <th>userID</th>
+  <th>Completed </th>
+  </tr>
+  <tbody *ngFor="let t of listToBuy" class="">
+  <td>{{t.title}}</td>
+  <td>{{t.userID}}</td>
+  <td  *ngIf="t.completed === true" style="color: green">{{t.completed}}</td>
+  <td  *ngIf="t.completed === false" style="color: red">{{t.completed}}</td>
+
+  </tbody>
+</table>
+
+<button class="btn-danger" (click)="getStat()">Get stats</button>
+<br>
+<h1>number of tobuy :{{count}}</h1>

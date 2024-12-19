@@ -1,0 +1,10 @@
+.scrollable-row {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 10px; /* optional: adds some space for scrolling */
+}
+
+.scrollable-row .col-md-3 {
+  flex: 0 0 auto; /* Ensures that each card will be treated as a fixed width */
+  margin-right: 15px; /* optional: adds some space between cards */
+}

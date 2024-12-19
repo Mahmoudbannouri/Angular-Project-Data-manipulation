@@ -1,0 +1,22 @@
+<p>Apartments for Residence ID: {{ residenceId }}</p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Apartment Number</th>
+    <th>Floor</th>
+    <th>Surface</th>
+    <th>Terrace</th>
+    <th>Category</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let apartment of apartments">
+    <td>{{ apartment.apartNum }}</td>
+    <td>{{ apartment.floorNum }}</td>
+    <td>{{ apartment.surface }}</td>
+    <td>{{ apartment.terrace ? 'Yes' : 'No' }}</td>
+    <td>{{ apartment.category }}</td>
+  </tr>
+  </tbody>
+</table>

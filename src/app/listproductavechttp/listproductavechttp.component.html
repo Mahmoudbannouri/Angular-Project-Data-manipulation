@@ -1,0 +1,68 @@
+<h1>Product List</h1>
+
+<!-- Button to toggle Add Product form -->
+<button class="btn btn-primary mb-3" (click)="toggleAddForm()">
+  Add Product
+</button>
+
+<!-- Add Product Form (only appears when showAddForm is true) -->
+<div *ngIf="showAddForm">
+  <form [formGroup]="productForm" (ngSubmit)="save()">
+    <div class="form-group">
+      <label>Title:</label>
+      <input type="text" class="form-control" formControlName="title">
+      <div *ngIf="title?.invalid && (title?.dirty || title?.touched)" class="text-danger">
+        <div *ngIf="title?.errors?.['required']">Title is required.</div>
+        <div *ngIf="title?.errors?.['minlength']">Title must be at least 3 characters long.</div>
+        <div *ngIf="title?.errors?.['maxlength']">Title cannot exceed 50 characters.</div>
+        <div *ngIf="title?.errors?.['pattern']">Title can only contain letters and spaces.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Price:</label>
+      <input type="number" class="form-control" formControlName="price">
+      <div *ngIf="price?.invalid && (price?.dirty || price?.touched)" class="text-danger">
+        <div *ngIf="price?.errors?.['required']">Price is required.</div>
+        <div *ngIf="price?.errors?.['pattern']">Price must be a positive number.</div>
+        <div *ngIf="price?.errors?.['min']">Price must be greater than 0.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Quantity:</label>
+      <input type="number" class="form-control" formControlName="quantity">
+      <div *ngIf="quantity?.invalid && (quantity?.dirty || quantity?.touched)" class="text-danger">
+        <div *ngIf="quantity?.errors?.['required']">Quantity is required.</div>
+        <div *ngIf="quantity?.errors?.['pattern']">Quantity must be a positive number.</div>
+        <div *ngIf="quantity?.errors?.['min']">Quantity must be greater than 0.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="productForm.invalid">Save</button>
+  </form>
+</div>
+
+<!-- Product List -->
+<div class="row scrollable-row">
+  <div *ngFor="let p of listproduct" class="col-md-3">
+    <div class="card" style="width: 18rem;">
+      <img src="../../assets/images/shirt1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ p.title }}</h5>
+        <p class="card-text">Price: {{ p.price }}</p>
+        <p class="card-text">Quantity: {{ p.quantity }}</p>
+        <button class="btn btn-danger" (click)="delete(p)">Delete</button>
+        <button class="btn btn-primary" (click)="selectForEdit(p)">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Display Edit Form when a product is selected -->
+<div *ngIf="selectedProduct">
+  <app-edit-product
+    [product]="selectedProduct"
+    (onUpdated)="onProductUpdated($event)">
+  </app-edit-product>
+</div>

@@ -1,0 +1,76 @@
+<!-- Input for filtering residences by address -->
+<input
+  type="text"
+  placeholder="Chercher par adresse"
+  [(ngModel)]="search_item"
+  class="form-control mb-3"
+/>
+
+<!-- Table to display residences -->
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Image</th>
+    <th>Nom</th>
+    <th>Status</th>
+    <th>Adresse</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of filtreByAddress()">
+    <td>
+      <img [src]="item.image" alt="{{ item.name }}" width="100px" height="100px" />
+    </td>
+    <td>{{ item.name }}</td>
+    <td *ngIf="item.status === 'Disponible'" style="color: green">
+      {{ item.status }}
+    </td>
+    <td *ngIf="item.status === 'Vendu'" style="color: red">
+      {{ item.status }}
+    </td>
+    <td *ngIf="item.status === 'En Construction'" style="color: orange">
+      {{ item.status }}
+    </td>
+    <td>{{ item.address }}</td>
+    <td>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="showLocation(item.address)"
+      >
+        Show location
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        (click)="addFavorite(item)"
+      >
+        Like
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        [routerLink]="['/residences', item.id]"
+      >
+        Details
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-danger"
+        [routerLink]="['/appartemntsbyresidence', item.id]"
+      >
+        Apartments of this
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!-- Router outlet for nested routes -->
+<router-outlet></router-outlet>
+
+<!-- Display favorite residences -->
+<ul *ngFor="let favorite of favoris">
+  <li>{{ favorite.id }} - {{ favorite.name }}</li>
+</ul>

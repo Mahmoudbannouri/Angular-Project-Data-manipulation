@@ -1,0 +1,44 @@
+<h1>data from static list</h1>
+
+
+<input [(ngModel)]="search_item" placeholder="Search by category" id="firstsearch" class="form-control mb-3">
+<table class="table">
+  <tr>
+  <th>apartNum</th>  <th>floorNum</th>   <th>surface</th>   <th>terrace</th>    <th>surfaceterrace</th> <th>category</th> <th>residence</th>
+  </tr>
+
+
+<tr *ngFor="let p of filterByCategory()">
+  <td>{{p.apartNum}}</td>
+  <td>{{p.floorNum}}</td>
+  <td>{{p.surface}}</td>
+  <td>{{p.terrace}}</td>
+  <td>{{p.surfaceterrace}}</td>
+  <td>{{p.category}}</td>
+  <td>{{p.ResidenceId}}</td>
+</tr>
+
+</table>
+
+
+<h1>data from jsonserver</h1>
+
+<input [(ngModel)]="search_itemdb" placeholder="Search by category" id="secondsearch" class="form-control mb-3">
+<table class="table">
+  <tr>
+    <th>apartNum</th>  <th>floorNum</th>   <th>surface</th>   <th>terrace</th>    <th>surfaceterrace</th> <th>category</th> <th>residence</th>
+  </tr>
+
+
+  <tr *ngFor="let f of filterByCategoryDb()">
+    <td>{{f.apartNum}}</td>
+    <td>{{f.floorNum}}</td>
+    <td>{{f.surface}}</td>
+    <td>{{f.terrace}}</td>
+    <td>{{f.surfaceterrace}}</td>
+    <td>{{f.category}}</td>
+    <td>{{f.ResidenceId}}</td>
+  </tr>
+
+</table>
+

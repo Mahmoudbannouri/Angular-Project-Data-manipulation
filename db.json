@@ -1,0 +1,120 @@
+{
+  "product": [
+    {
+      "id": "0fae",
+      "title": "rezlk",
+      "price": 542,
+      "quantity": 24
+    },
+    {
+      "id": "be10",
+      "title": "newupdatere",
+      "price": 250,
+      "quantity": 7000
+    }
+  ],
+  "Residence": [
+    {
+      "id": "1",
+      "name": "El fel",
+      "address": "Borj Cedria",
+      "image": "../../assets/images/R1.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": "2",
+      "name": "El yasmine",
+      "address": "Ezzahra",
+      "image": "../../assets/images/R2.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": "3",
+      "name": "El Arij",
+      "address": "Rades",
+      "image": "../../assets/images/R3.jpg",
+      "status": "Vendu"
+    },
+    {
+      "id": "4",
+      "name": "El Anber",
+      "address": "inconnu",
+      "image": "../../assets/images/R4.jpg",
+      "status": "En Construction"
+    }
+  ],
+  "Apartment": [
+    {
+      "apartNum": 101,
+      "floorNum": 1,
+      "surface": 75,
+      "terrace": true,
+      "surfaceterrace": 10,
+      "category": "Studio",
+      "ResidenceId": "1"
+    },
+    {
+      "apartNum": 102,
+      "floorNum": 1,
+      "surface": 85,
+      "terrace": false,
+      "surfaceterrace": 0,
+      "category": "T2",
+      "ResidenceId": "2"
+    },
+    {
+      "apartNum": 201,
+      "floorNum": 2,
+      "surface": 90,
+      "terrace": true,
+      "surfaceterrace": 12,
+      "category": "T3",
+      "ResidenceId": "4"
+    },
+    {
+      "apartNum": 202,
+      "floorNum": 2,
+      "surface": 95,
+      "terrace": true,
+      "surfaceterrace": 15,
+      "category": "T2",
+      "ResidenceId": "3"
+    },
+    {
+      "apartNum": 301,
+      "floorNum": 3,
+      "surface": 120,
+      "terrace": false,
+      "surfaceterrace": 0,
+      "category": "T4",
+      "ResidenceId": "4"
+    },
+    {
+      "apartNum": 302,
+      "floorNum": 3,
+      "surface": 110,
+      "terrace": true,
+      "surfaceterrace": 18,
+      "category": "T3",
+      "ResidenceId": "3"
+    },
+    {
+      "apartNum": 401,
+      "floorNum": 4,
+      "surface": 80,
+      "terrace": true,
+      "surfaceterrace": 8,
+      "category": "T1",
+      "ResidenceId": "1"
+    },
+    {
+      "apartNum": 402,
+      "floorNum": 4,
+      "surface": 100,
+      "terrace": false,
+      "surfaceterrace": 0,
+      "category": "T2",
+      "ResidenceId": "2"
+    }
+  ]
+}
